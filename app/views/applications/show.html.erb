@@ -6,18 +6,17 @@
 <h3>State:          <%= @application.state %></h3>
 <h3>Zip Code: <%= @application.zip_code %></h3>
 
-<p>
-<h1>Describe why you would make a good pet owner:</h1>
-<h3><%= @application.description %></h3>
-</p>
+
 
 
 <section>
-<h3>Add a Pet to this Application:</h3>
-<%= form_with url:"/applications/#{@application.id}", method: :get, local: true do |f| %>
-  <%= f.label :pet_name, "Pet Name to search:" %>
-  <%= f.text_field :pet_name %>
-  <%= f.submit "Submit Search" %><br>
+<% if @application.status == "In Progress" %>
+  <h3>Add a Pet to this Application:</h3>
+  <%= form_with url:"/applications/#{@application.id}", method: :get, local: true do |f| %>
+    <%= f.label :pet_name, "Pet Name to search:" %>
+    <%= f.text_field :pet_name %>
+    <%= f.submit "Submit Search" %><br>
+  <% end %>
 <% end %>
 
 <% if @pets_found %>
@@ -27,19 +26,26 @@
     <%= button_to "Adopt #{pet.name}", "/applications/#{@application.id}/#{pet.id}", method: :post %>
   <% end %>
 <% end %>
-
-
 </section>
-
 
 <div id="associated-pets-section">
 <h1>Pets Under Consideration:</h1>
 <% if @application.pets.count > 0 %>
   <% @application.pets.each do |pet| %>
     <%= link_to "#{pet.name}", "/pets/#{pet.id} " %>
-
   <% end  %>
 <% end  %>
 </div>
+
+<section>
+  <% if @application.pets.count > 0 %>
+    <%= form_with url:"/applications/#{@application.id}", method: :patch, local: true do |f| %>
+      <h4><%= f.label :title, "Describe Why You Would Make a Good Owner:" %></h4>
+      <%= f.label :application_description, 'Description:' %><br>
+      <%= f.text_field :application_description %><br>
+      <%= f.submit 'Final Submission' %>
+    <% end %>
+  <% end  %>
+</section>
 
 <p><h1><%= "Status: #{@application.status}" %></h1></p>

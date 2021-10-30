@@ -57,7 +57,7 @@ And I see a message that I must fill in those fields.
 ```
 
 ```
-4. [ ] done
+4. [X] done
 
 Searching for Pets for an Application
 
@@ -73,7 +73,7 @@ And under the search bar I see any Pet whose name matches my search
 ```
 
 ```
-5. [ ] done
+5. [X] done
 
 Add a Pet to an Application
 
@@ -88,7 +88,7 @@ And I see the Pet I want to adopt listed on this application
 ```
 
 ```
-6. [ ] done
+6. [X] done
 
 Submit an Application
 
@@ -106,7 +106,7 @@ And I do not see a section to add more pets to this application
 ```
 
 ```
-7. [ ] done
+7. [X] done
 
 No Pets on an Application
 

@@ -44,7 +44,7 @@ And I see an indicator that this application is "In Progress"
 ```
 
 ```
-3. [ ] done
+3. [X] done
 
 Starting an Application, Form not Completed
 

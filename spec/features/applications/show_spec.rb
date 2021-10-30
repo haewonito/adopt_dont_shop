@@ -70,5 +70,9 @@ RSpec.describe "applications show page", type: :feature do
       expect(page).to have_content("Smokie")
       expect(page).to_not have_content("Add a Pet to this Application")
     end
+
+    it "US7: cannot do final submit if there's no pet added to application" do
+      expect(page).to_not have_content("Final Submission")
+    end
   end
 end
